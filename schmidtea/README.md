@@ -1,7 +1,3 @@
-### IMPORTANT NOTE: The data can be find on google drive of:
-schmidtealignano@gmail.com
-The 201106: same password (with cap on the first letter) that Az Lab PC
-
 ### The aim of this code is to analyse automatically the orientation of centriole inside planarians.  
 
 
