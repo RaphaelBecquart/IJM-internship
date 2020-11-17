@@ -6,16 +6,16 @@ The 201106: same password (with cap on the first letter) that Az Lab PC
 
 ## The aim of this code is to analyse automatically the orientation of centriole inside planarians.  
 
-Requirement:  
+**Experimental requirement:**    
 Immunofluorescence images acquired in DIC and anti-rootletin appropriate wavelength at 10x objective  
-Immunofluorescence images of anti-rootletin at 100x objective  
+Immunofluorescence images of anti-rootletin at 63/100x objective.  
 
-Basically:  
-The code will extract the edges and the midline of a worm (DIC 10x image), then reformat them in a appropriate format.   
-Centrioles will be recognized (Using a mix of Difference of Gaussian and an equivalent of Find Maxima function from ImageJ) and Extracted.  
-The angle of each centriole is predicted using a Neural Network (CNN adapted from VGG).  
+**Basic principle:**  
+The code extract the edges and the midline of a worm (using the DIC 10x image), then reformat them in a appropriate format.   
+Centrioles are recognized (Using a mix of Difference of Gaussian and an equivalent of Find Maxima function from ImageJ) and Extracted from the 63/100x images.  
+The angle of each centriole is predicted using a Neural Network (CNN adapted from VGG), so far only classification mode is trained (72 classes).    
 Those angle are then "compensated" depending on the local orientation of the worm.  
-Relative distance of the centriole on the Antero-Posterior and Medio-Lateral axes is also computed.  
+Relative distance of the centriole on the Antero-Posterior and Medio-Lateral axes is also computed.    
 Results are summarized in customizable graph.  
 
 **Differents step of the code:**
