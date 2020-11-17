@@ -18,19 +18,19 @@ Those angle are then "compensated" depending on the local orientation of the wor
 Relative distance of the centriole on the Antero-Posterior and Medio-Lateral axes is also computed.    
 Results are summarized in customizable graph.  
 
-**Differents step of the code:**
-  1/ Extraction of the edges and midline of a worm:
+**Differents step of the code:**  
+  1/ Extraction of the edges and midline of a worm:  
  So far (17 November 2020), this step need to be performed manually. First, the code for the segmentation need to be improve. Second, it's quite easy to segment the external edge of the worm. But for _Schmidtea Mediterranea_ this edge do not fit with the Region of interest where the centrioles are present.  
- Test have to be performed for _Macrostomum Lignano_.
- 
+ Test have to be performed for _Macrostomum Lignano_.  
+   
  => Manual extraction of the edge/midline:  
- With ImageJ, open the image and draw the midline with polyline tool. Then _smooth_ the drawned polyline with the adapted ImageJ command. Save the line in txt file.
- 
- => Automatic extraction of the edge/midline:
-
-
-Differents stepas are required:  
-  1/ Get centriole coordinate:
+ With ImageJ, open the image and draw the midline with polyline tool. Then _smooth_ the drawned polyline with the adapted ImageJ command. Save the line in txt file.  
+   
+ => Automatic extraction of the edge/midline:  
+  
+   
+  2/ Get centriole coordinate:  
+ Centrioles
       A method that will automatically find the coordinates of as many as possible centriole in a planariane
 
   2/ Get the angle of the centriole
