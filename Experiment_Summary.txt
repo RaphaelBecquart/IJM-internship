@@ -1,0 +1,17 @@
+201125: On Azimzadeh's PC Centriole detection (not orientation analysis) of several worms:
+            160330_WT_4              => 1h30  ( 47 000 centrioles)
+            160330_WT_5              => 1h40  (100 000)
+            160331_Odf2_full_1       => 2h    ( 70 000)
+            160331_Odf2_full_2       => 3h    ( 58 000)
+            160331_Vfl1_full_10      => 2h20  ( 67 000)
+            160331_Vfl1_full_6       => 2h50  ( 66 000)
+            160331_Vfl3_full_1       => 4h    ( 91 000)
+            160331_Vfl3_full_3       => 4h30  ( 87 000)
+            160331_Vfl3_full_7       => 2h50  ( 77 000)
+            160331_Vfl3_full_8       => 4h    ( 33 000)
+            160331_Vfl3_full_9       => 4h20  ( 73 000)
+            160705_WT_3              => 2h10  ( 57 000)
+            160705_WT_7              => 1h    ( 80 000)
+            
+            
+         Centriole detection is really good. The problem might come from the images. If the rootletin labeling is of poor quality centriole are still detected correctly, but the prediction of there orientation will probably be bad
