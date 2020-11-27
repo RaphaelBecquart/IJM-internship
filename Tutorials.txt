@@ -1,0 +1,76 @@
+Super short tutorial to perform semi-automatic analysis of centriole orientation.
+
+Basically, the code will take all img (anti-rootletin) and all Excel file located in the folder to_analyse. (One image = One Excel File and they must have the same name except for their extension).
+Some intermediate step are save (note: so far, images are save as 32bits, but 8bits is enough (in fact 2bits: they are binary))
+
+Advancement 
+
+
+
+
+Step 0: The code and model can be find in:
+	
+	C:\Users\Equipe_Azimzadeh\Desktop\Planarians
+	
+	Thanks to some hidden file, the content of that folder is partially link to my cyril-basquin github and to a dedicated google account. It will allow easy update.
+
+	
+
+Step 1: After image acquisition, post process the image as usual:
+		a/ Stitching
+		b/ Z_project with max intensity
+		c/ Sub_track backgroung save the image
+		
+Step 2: Overlap the image acquire at 10x with images acquired at 100x
+	It's easier to define worm contour and midline at 10x
+		
+Step 3: Extract features and save it in the appropriate excel file (xls_model_for_worm_charac.xlsm)
+
+	Midline and Edge Extraction: On the overlapped image open with ImageJ :
+			-> draw the midline or the edge with 'Segmented Line' Tools
+			-> smooth the drawing. Edit -> Selection -> Fit Spline
+			-> Save the midline/edge as XY coordinates. File -> Save As -> XY Coordinates...
+
+	
+	So far the important feature are: 
+		Orientation du ver (D2): left or right (gauche and droite should work too)
+								So far (27 11 2020) the left/right distinction is not implemented
+		Décalage X (I1): Y SHIFT. If you overlap the 100x on the 10x, then use this overlaped image the shift is 0
+		Décalage Y (I2): X SHIFT. Same that X
+		Ver (M1) : So far (27 11 2020) the code has been tested only on full worm, and partial worms has not benn implemented
+		
+		Midline (H12): Open the previously obtained XY coordinate file of the midline and copy paste in H12
+		Edge (L12): Open the previously obtained XY coordinate file of the midline and copy paste in L12
+			IMPORTANT: Change all . in , (I don't know if dot are supported by python). Ctrl + A (select All) -> Ctrl + F (Find) -> Replace -> Find what : .   -> Replace with : ,    -> Replace All
+			
+Step 4: Put the image and the excel fil in the folder 'to_analyse'. They must have the same Name per exemple except for the extension example:
+		830522_img_of_cyril_birth.tif
+		830522_img_of_cyril_birth.xlsm
+		
+
+Step 5: Open Jupyter Lab (this is a interface to read and run the code)
+	In windows command prompt (Shortcut: Win + R -> cmd.exe)
+	Go to the planarians folder actually (TYPE cd Desktop PRESS ENTER TYPE cd Planarians)
+			OR directly TYPE cd C:\Users\Equipe_Azimzadeh\Desktop\Planarians PRESS ENTER
+	
+	Launch Jupyter Lab: TYPE jupyter lab PRESS ENTER
+	
+	Open (double click) Main.ipynb
+	Note: in theory you will enter directly in the correct place, if you don't see this file, try to return to the root by clicking on the folder picture below File
+	
+	Run All cells: Run -> Run All Cells
+	
+	In theory it should work. on the left of the cell, a number should appear in the bracket once the code of the cell runned. when a cell is running (or waiting to tun there is no number but a * )
+	
+	
+	Troubleshooting: 
+		=> The 2 first cell should run almost instantly (let say in max 30 seconds) If i't not the case. restart the kernel  (Kernel -> Restart the Kernel and Run All Cells)
+		
+		=> A red Message appear under a cell: That's not good, Either the problem come from the file that you put in the to_analyse folder or from the code.
+	
+	
+
+		
+Step 6: Remove everything to the to_analyse folder
+	
+	
