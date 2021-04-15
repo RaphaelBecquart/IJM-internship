@@ -157,3 +157,5 @@ https://scikit-image.org/docs/0.13.x/api/skimage.morphology.html#skimage.morphol
    
    
 https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
+
+https://pylightxl.readthedocs.io/en/latest/quickstart.html
