@@ -1,5 +1,7 @@
 # Machine learning-based prediction of centriole orientation in planarians.  
-The aim of this project is to automatically determine the orientation of all centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
+The aim of this project is to automatically determine the orientation of centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
+
+# Installation
 
 
 **Experimental requirement:**    
