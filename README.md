@@ -4,7 +4,7 @@ Last update: 17 November 2020
 schmidtealignano@gmail.com  
 The 201106: same password (with cap on the first letter) that Az Lab PC
 
-## The aim of this code is to analyse automatically the orientation of centriole inside planarians.  
+## Machine learning-based prediction of centriole orientation in planarians.  
 
 **Experimental requirement:**    
 Immunofluorescence images acquired in DIC and anti-rootletin appropriate wavelength at 10x objective  
