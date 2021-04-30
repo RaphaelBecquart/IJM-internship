@@ -1,10 +1,6 @@
-Last update: 17 November 2020
+# Machine learning-based prediction of centriole orientation in planarians.  
+The aim of this project is to automatically determine the orientation of all centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
 
-### IMPORTANT NOTE: The data can be find on google drive of:
-schmidtealignano@gmail.com  
-The 201106: same password (with cap on the first letter) that Az Lab PC
-
-## Machine learning-based prediction of centriole orientation in planarians.  
 
 **Experimental requirement:**    
 Immunofluorescence images acquired in DIC and anti-rootletin appropriate wavelength at 10x objective  
