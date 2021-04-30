@@ -4,7 +4,7 @@ The aim of this project is to automatically determine the orientation of centrio
 # Installation
 1. Clone this repository to your local environment
 ```
-git clone https://github.com/RaphaelBecquart/IJM-internship.git
+git clone <HTTPS address>
 ```
 Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl 
 
