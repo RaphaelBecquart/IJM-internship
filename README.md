@@ -1,37 +1,42 @@
-Last update: 17 November 2020
+# Machine learning-based prediction of centriole orientation in planarians.  
+The aim of this project is to automatically determine the orientation of centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
 
-### IMPORTANT NOTE: The data can be find on google drive of:
-schmidtealignano@gmail.com  
-The 201106: same password (with cap on the first letter) that Az Lab PC
+# Installation
+1. Clone this repository to your local environment
+```
+git clone <HTTPS address>
+```
+Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl 
 
-## The aim of this code is to analyse automatically the orientation of centriole inside planarians.  
+2. Install all required packages using the requirements text file:
+```
+pip install -r /path/to/requirements.txt
+``` 
+# Usage
+**Experimental requirements**    
+Immunofluorescence images of anti-rootletin at 63/100x objective (100x for best results)  
 
-**Experimental requirement:**    
-Immunofluorescence images acquired in DIC and anti-rootletin appropriate wavelength at 10x objective  
-Immunofluorescence images of anti-rootletin at 63/100x objective.  
-
-**Basic principle:**  
-The code extract the edges and the midline of a worm (using the DIC 10x image), then reformat them in a appropriate format.   
+**Basic principle**  
+The code extracts the edges and the midline of a worm (using the DIC 10x image), then reformats them into an appropriate format.   
 Centrioles are recognized (Using a mix of Difference of Gaussian and an equivalent of Find Maxima function from ImageJ) and Extracted from the 63/100x images.  
 The angle of each centriole is predicted using a Neural Network (CNN adapted from VGG), so far only classification mode is trained (72 classes).    
-Those angle are then "compensated" depending on the local orientation of the worm.  
-Relative distance of the centriole on the Antero-Posterior and Medio-Lateral axes is also computed.    
-Results are summarized in customizable graph.  
+Those angles are then "compensated" depending on the local orientation of the worm.  
+Relative distance of the centriole on the anteroposterior and Medio-Lateral axes is also computed.    
+Results are summarized in a customizable graph.  
 
-**Differents step of the code:**  
+**Differents step of the code**  
   1/ Extraction of the edges and midline of a worm:  
- So far (17 November 2020), this step need to be performed manually. First, the code for the segmentation need to be improve. Second, it's quite easy to segment the external edge of the worm. But for _Schmidtea Mediterranea_ this edge do not fit with the Region of interest where the centrioles are present.  
- Test have to be performed for _Macrostomum Lignano_.  
+ So far (17 November 2020), this step need to be performed manually. First, the code for the segmentation needs to be improved. Second, it's quite easy to segment the external edges of the worm. But for _Schmidtea Mediterranea_ the edges do not fit with the Region of interest where the centrioles are present.  
+ Tests have to be performed for _Macrostomum Lignano_.  
    
- => Manual extraction of the edge/midline:  
- With ImageJ, open the image and draw the midline with polyline tool. Then _smooth_ the drawned polyline with the adapted ImageJ command. Save the line in txt file.  
+ => Manual extraction of the edge and midline:  
+With ImageJ, open the 63/100x image and draw the midline with _segmented line_ tool. Then _smooth_ the drawn line with the _fit spline_ ImageJ command. Save the x,y coordinates in a txt file. The same must be done for the worm's edges.  
    
  => Automatic extraction of the edge/midline:  
-  
+ Not implemented yet.
    
-  2/ Get centriole coordinate:  
- Centrioles
-      A method that will automatically find the coordinates of as many as possible centriole in a planariane
+  2/ Get centriole coordinates:  
+       A method that will automatically find the coordinates of as many as possible centrioles in the planarian worm 
 
   2/ Get the angle of the centriole
      From the coordinate obtain in 1/, extract the image and compute an angle  
