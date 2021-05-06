@@ -6,12 +6,12 @@
 ```
 git clone <HTTPS address>
 ```
-Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl or simply install Anaconda to access Jupyter.
 
 2. Install all required packages using the requirements text file:
 ```
 pip install -r /path/to/requirements.txt
 ``` 
+Note: Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl and follow the same steps. Alternatively they may download Anaconda and this repository as a zip file, and do the same steps on the conda prompt.
 
 # Usage / How it works
 **Experimental requirements**    
