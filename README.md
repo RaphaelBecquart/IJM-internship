@@ -12,7 +12,8 @@ Windows users will need a Ubuntu sub-system downloadable via this link: https://
 ```
 pip install -r /path/to/requirements.txt
 ``` 
-# How it works
+
+# Usage / How it works
 **Experimental requirements**    
 Immunofluorescence images of anti-rootletin at 63/100x objective (100x for best results)  
 
@@ -77,6 +78,10 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
   - CSV file as a list of lists, each containing data for individual reoriented centrioles (described in Main_v3, end of the script)
   - 5 'GRAPH' plots: worm is segmented into 5 anteroposterior segments. For each segment we segment the average angle (moving average) of the centrioles according to its location. The x axis shows its medio-lateral location (0 = midline) while the y axis represents the angle. Each point is a centriole. The dark area represents the circular standard deviation (CSTD).
 
+**Before running Main_v3.ipynb**
+- For manual midline and edge selection: After pasting the coordinates on the .xlsm file, go to the Graph sheet and ensure that the plotted worm looks normal. If not, redo the manual segmentation.
+- Ensure that you have placed your files to be analysed in the folder to_analyse/. In the abscence of this folder, simply create it and paste your files inside.
+- Ensure the that the weights of the neural network exist in: weights/VGG_schmidtea_weight_classification.pth. If not, you can find it on the Schmidtea drive.
 
 # TO DO LIST:  
 
