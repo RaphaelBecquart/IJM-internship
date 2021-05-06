@@ -1,5 +1,5 @@
 # Machine learning-based prediction of centriole orientation in planarians.  
-The aim of this project is to automatically determine the orientation of centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
+'Planarians' is a pipeline that allows researchers to quantitatively relate ciliary defects to centriole polarity via automatic determination of centriole orientation.
 
 # Installation
 1. Clone this repository to your local environment
@@ -12,7 +12,7 @@ Windows users will need a Ubuntu sub-system downloadable via this link: https://
 ```
 pip install -r /path/to/requirements.txt
 ``` 
-# Usage
+# How it works
 **Experimental requirements**    
 Immunofluorescence images of anti-rootletin at 63/100x objective (100x for best results)  
 
