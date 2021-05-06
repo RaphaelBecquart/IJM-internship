@@ -6,7 +6,7 @@
 ```
 git clone <HTTPS address>
 ```
-Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl 
+Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl or simply install Anaconda to access Jupyter.
 
 2. Install all required packages using the requirements text file:
 ```
