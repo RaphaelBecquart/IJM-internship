@@ -25,12 +25,12 @@ Relative distance of the centriole on the anteroposterior and Medio-Lateral axes
 Results are summarized in a customizable graph.  
 
 **Differents step of the code**  
-  1/ Extraction of the edges and midline of a worm:  
- So far (17 November 2020), this step need to be performed manually. First, the code for the segmentation needs to be improved. Second, it's quite easy to segment the external edges of the worm. But for _Schmidtea Mediterranea_ the edges do not fit with the Region of interest where the centrioles are present.  
+  1/ Extraction of the edges and midline of the worm:  
+ So far (6 May 2021), this step needs to be performed manually with ImageJ. First, the code for the segmentation needs to be improved. Second, it's quite easy to segment the external edges of the worm. But for _Schmidtea Mediterranea_ the edges do not fit with the Region of interest where the centrioles are present.  
  Tests have to be performed for _Macrostomum Lignano_.  
    
  => Manual extraction of the edge and midline:  
-With ImageJ, open the 63/100x image and draw the midline with _segmented line_ tool. Then _smooth_ the drawn line with the _fit spline_ ImageJ command. Save the x,y coordinates in a txt file. The same must be done for the worm's edges.  
+With ImageJ, open the 63/100x image and draw the midline with _segmented line_ tool. Then _smooth_ the drawn line with the _fit spline_ ImageJ command (Edit -> selection). Save the x,y coordinates in a txt file. The same must be done for the worm's edges.  
    
  => Automatic extraction of the edge/midline:  
  Not implemented yet.
@@ -38,15 +38,15 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
   2/ Get centriole coordinates:  
        A method that will automatically find the coordinates of as many as possible centrioles in the planarian worm 
 
-  2/ Get the angle of the centriole
-     From the coordinate obtain in 1/, extract the image and compute an angle  
+  3/ Get the angle of the centriole
+     From the coordinates obtained in 1/, extract the image and compute an angle  
      
      To do so a CNN approach is used
      
      ADVANCEMENT : Training of the model is under progress. Since the dataset is not completeley normalized, i might have trouble to get valuable output
 
 
-  3/ Get Edge and Midline characteristic:
+  4/ Get Edge and Midline characteristics:
       a/ Automatic detection of the edge and the midline
       
       ADVANCEMENT: For the moment, the detection will be performed manually
@@ -57,9 +57,9 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
       
       The code for this part is located in ./tools/Midline_Edge_Reformater.ipynb
       
-      ADVANCEMENT: Code is suppose to be over, but test need to be performed
+      ADVANCEMENT: Code is supposed to be finished, but tests need to be performed, especially with Macrostomum.
       
-  4/ Get 'Real' centriole characteristic
+  5/ Get 'Real' centriole characteristics
      -> centriole angle 
      -> relative lateral position (0 = midline, <0 : on the right side of the worm, >0 : on the left side of the worm)
      -> relative longitudinal position (0 = tail, 1 = head)
@@ -67,18 +67,13 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
      
      ADVANCEMENT: see note below.
      
-     NOTE: I need to think: how i will get the data from the CNN to know how i will inject them in thi script
+     NOTE: I need to think: how will I get the data from the CNN to know how I will inject them in thi script
      
-     So far, this is write in ./Centriole_Compensation.ipynb.
-     In this notebook, 
-     
+     So far, this is written in ./Centriole_Compensation.ipynb. 
      
      
-  5/ Summarized the data for a worm
- 
-
-
-
+     
+  6/ Summarize the worm's data into a CSV file as a list of lists, each containing data for individual reoriented centrioles: 
 
 
 # TO DO LIST:  
