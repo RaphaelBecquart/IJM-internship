@@ -84,7 +84,9 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
 -----------------------------------------------------------------
 
 ## CNN
-  
+
+The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_
+
 ### DataBase Loader preparation 
 
 I could pass a function to get the images from json in the Dataset class.
@@ -97,7 +99,7 @@ I am not certain it's optimal.
   
   
   
----------------------------------------------------------------------
+--------------------------------------------------------------------
   
   
 # Centriole isolation 
