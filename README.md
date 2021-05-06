@@ -9,7 +9,7 @@ git clone <HTTPS address>
 
 2. Install all required packages using the requirements text file:
 ```
-pip install -r /path/to/requirements.txt
+pip install -r /path/to/newrequirements.txt
 ``` 
 Note: Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl and then follow the same steps above. Alternatively they may download Anaconda and this repository (as a zip file), and do the same steps on the conda prompt.
 
