@@ -73,7 +73,9 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
      
      
      
-  6/ Summarize the worm's data into a CSV file as a list of lists, each containing data for individual reoriented centrioles: 
+  6/ Summarize the worm's data: 
+  - CSV file as a list of lists, each containing data for individual reoriented centrioles (described in Main_v3, end of the script)
+  - 5 'GRAPH' plots: worm is segmented into 5 anteroposterior segments. For each segment we segment the average angle (moving average) of the centrioles according to its location. The x axis shows its medio-lateral location (0 = midline) while the y axis represents the angle. Each point is a centriole. The dark area represents the circular standard deviation (CSTD).
 
 
 # TO DO LIST:  
@@ -81,27 +83,24 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
 
 -----------------------------------------------------------------
 
-## POUR LE CNN
+## CNN
   
-### Preparation d'un DataBase Loader  
+### DataBase Loader preparation 
 
-Je peux peut-etre passser la function qui permet de récuperer les images depuis les json dans la class Dataset.
+I could pass a function to get the images from json in the Dataset class.
 
-Je suis pas certain que ce soit opti.
+I am not certain it's optimal.
   
   
   
 ### Validation  
-
-Pas obligatoire de faire cette étape mais tester mon pipeline d'analyse entier
-  
   
   
   
 ---------------------------------------------------------------------
   
   
-# Pour l'isolation des centrioles  
+# Centriole isolation 
 
 
 ## How to detect centrioles in images
@@ -118,28 +117,28 @@ https://en.wikipedia.org/wiki/Gaussian_blur
 # on the original image with a radius of 0.5 (sigma1)
 # on the original image with a radius of 5 (sigma2)
 
-#Then subtract image created sigma1 with images created with sigma2 (Process -> Image Calculator...)
+#Then subtract image created with sigma1 with image created with sigma2 (Process -> Image Calculator...)
 
 
 
 ## Step 2: Perform an adaptive thresholding approach
 
 Otsu, 1979
-Otsu_treshold -> implementé dans ImageJ: 
+Otsu_treshold -> implemented in ImageJ: 
 https://imagej.nih.gov/ij/plugins/otsu-thresholding.html
 download .JAR file and put it in the plugin folder of Fiji
 
 To apply it
 Plugins -> Filters -> Otsu Tresholding
 
-Then I should perform filters to remove too big and too small objects
+Then I should perform filters to remove objects that are too big and too small.
 
   
   
   
 ---------------------------------------------------------------------
   
-## Pour la rectification de l'angle des centrioles  
+## Centriole reorientation  
    
    
    
@@ -154,7 +153,7 @@ https://scipy-lectures.org/packages/scikit-image/index.html
 https://scikit-image.org/docs/0.13.x/api/skimage.morphology.html#skimage.morphology.remove_small_objects
    
    
-   
+
    
 https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 
