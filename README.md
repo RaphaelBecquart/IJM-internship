@@ -11,7 +11,7 @@ git clone <HTTPS address>
 ```
 pip install -r /path/to/requirements.txt
 ``` 
-Note: Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl and follow the same steps. Alternatively they may download Anaconda and this repository as a zip file, and do the same steps on the conda prompt.
+Note: Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl and then follow the same steps above. Alternatively they may download Anaconda and this repository (as a zip file), and do the same steps on the conda prompt.
 
 # Usage / How it works
 **Experimental requirements**    
