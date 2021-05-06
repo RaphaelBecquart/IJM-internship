@@ -113,11 +113,11 @@ Sonka, 2007
 https://en.wikipedia.org/wiki/Difference_of_Gaussians
 https://en.wikipedia.org/wiki/Gaussian_blur
 
--> in ImageJ perform Gaussian blur (Process -> Filters -> Gaussian Blur) 
-# on the original image with a radius of 0.5 (sigma1)
-# on the original image with a radius of 5 (sigma2)
+-> In ImageJ perform Gaussian blur (Process -> Filters -> Gaussian Blur) 
+     - on the original image with a radius of 0.5 (sigma1)
+     - on the original image with a radius of 5 (sigma2)
 
-#Then subtract image created with sigma1 with image created with sigma2 (Process -> Image Calculator...)
+-> Then subtract image created with sigma1 with image created with sigma2 (Process -> Image Calculator...)
 
 
 
