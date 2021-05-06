@@ -90,7 +90,7 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
 
 ## CNN
 
-The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_
+The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_. Perhaps the model needs to be trained with new manual _Macrostomum_ data.
 
 ### DataBase Loader preparation 
 
