@@ -82,6 +82,7 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
 - For manual midline and edge selection: After pasting the coordinates on the .xlsm file, go to the Graph sheet and ensure that the plotted worm looks normal. If not, redo the manual segmentation.
 - Ensure that you have placed your files to be analysed in the folder to_analyse/. In the abscence of this folder, simply create it and paste your files inside.
 - Ensure the that the weights of the neural network exist in: weights/VGG_schmidtea_weight_classification.pth. If not, you can find it on the Schmidtea drive.
+- If your image was acquired wiith 63x objective instead of 100x, resize it by a factor of 100/63 = 1.59 on ImageJ (scale function)
 
 # TO DO LIST:  
 
