@@ -91,7 +91,7 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
 
 ## CNN
 
-- The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_. Perhaps the model needs to be trained with new manual _Macrostomum_ data. Potential challenge: contrary to _Schmidtea_, _Macrostomum_ has 'vertical' rootlets in addition to the horizontal ones. Will need to be very cautious to discard the former in the manual process. 
+- The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_. Perhaps the model needs to be trained with new manual _Macrostomum_ data. This task could be outsourced with Amazon Mechanical Turk. Potential challenge: contrary to _Schmidtea_, _Macrostomum_ has 'vertical' rootlets in addition to the horizontal ones. Will need to be very cautious to discard the former in the manual process. 
 - For weaker PCs, the code could be implemented on Google Colaboratory or Paperspace which offer free GPU. However the jupyter-colab migration is likely going to take a lot of time due to syntax differences between the 2 platforms. For one, _pylightxl_ isn't available in colab. An alternative like pandas could be implemented. Also, there may be storage issues with the drive.
 
 ### DataBase Loader preparation 
