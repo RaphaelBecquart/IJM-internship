@@ -76,7 +76,7 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
      
   6/ Summarize the worm's data: 
   - CSV file as a list of lists, each containing data for individual reoriented centrioles (described in Main_v3, end of the script)
-  - 5 'GRAPH' plots: worm is segmented into 5 anteroposterior segments. For each segment we segment the average angle (moving average) of the centrioles according to its location. The x axis shows its medio-lateral location (0 = midline) while the y axis represents the angle. Each point is a centriole. The dark area represents the circular standard deviation (CSTD).
+  - 10 'GRAPH' plots (5x Mean angle, 5x CSTD) : worm is segmented into 5 anteroposterior segments. For each segment we segment the average angle (moving average) of the centrioles according to its location. The x axis shows its medio-lateral location (0 = midline) while the y axis represents the angle. Each point is a centriole. The dark area represents the circular standard deviation (CSTD).
 
 **Before running Main_v3.ipynb**
 - For manual midline and edge selection: After pasting the coordinates on the .xlsm file, go to the Graph sheet and ensure that the plotted worm looks normal. If not, redo the manual segmentation.
