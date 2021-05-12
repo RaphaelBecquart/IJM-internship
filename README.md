@@ -1,18 +1,19 @@
 # Machine learning-based prediction of centriole orientation in planarians.  
-The aim of this project is to automatically determine the orientation of centrioles with respect to a worm's anteroposterior axis, allowing biologists to quantitatively relate ciliary defects to centriole polarity.
+'Planarians' is a pipeline that allows researchers to quantitatively relate ciliary defects to centriole polarity via automatic determination of centriole orientation.
 
 # Installation
 1. Clone this repository to your local environment
 ```
 git clone <HTTPS address>
 ```
-Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl 
 
 2. Install all required packages using the requirements text file:
 ```
-pip install -r /path/to/requirements.txt
+pip install -r /path/to/newrequirements.txt
 ``` 
-# Usage
+Note: Windows users will need a Ubuntu sub-system downloadable via this link: https://ubuntu.com/wsl and then follow the same steps above. Alternatively they may download Anaconda and this repository (as a zip file), and do the same steps on the conda prompt.
+
+# Usage / How it works
 **Experimental requirements**    
 Immunofluorescence images of anti-rootletin at 63/100x objective (100x for best results)  
 
@@ -25,12 +26,12 @@ Relative distance of the centriole on the anteroposterior and Medio-Lateral axes
 Results are summarized in a customizable graph.  
 
 **Differents step of the code**  
-  1/ Extraction of the edges and midline of a worm:  
- So far (17 November 2020), this step need to be performed manually. First, the code for the segmentation needs to be improved. Second, it's quite easy to segment the external edges of the worm. But for _Schmidtea Mediterranea_ the edges do not fit with the Region of interest where the centrioles are present.  
+  1/ Extraction of the edges and midline of the worm:  
+ So far (6 May 2021), this step needs to be performed manually with ImageJ. First, the code for the segmentation needs to be improved. Second, it's quite easy to segment the external edges of the worm. But for _Schmidtea Mediterranea_ the edges do not fit with the Region of interest where the centrioles are present.  
  Tests have to be performed for _Macrostomum Lignano_.  
    
  => Manual extraction of the edge and midline:  
-With ImageJ, open the 63/100x image and draw the midline with _segmented line_ tool. Then _smooth_ the drawn line with the _fit spline_ ImageJ command. Save the x,y coordinates in a txt file. The same must be done for the worm's edges.  
+With ImageJ, open the 63/100x image and draw the midline with _segmented line_ tool. Then _smooth_ the drawn line with the _fit spline_ ImageJ command (Edit -> selection). Save the x,y coordinates in a txt file. The same must be done for the worm's edges.  
    
  => Automatic extraction of the edge/midline:  
  Not implemented yet.
@@ -38,15 +39,15 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
   2/ Get centriole coordinates:  
        A method that will automatically find the coordinates of as many as possible centrioles in the planarian worm 
 
-  2/ Get the angle of the centriole
-     From the coordinate obtain in 1/, extract the image and compute an angle  
+  3/ Get the angle of the centriole
+     From the coordinates obtained in 1/, extract the image and compute an angle  
      
      To do so a CNN approach is used
      
      ADVANCEMENT : Training of the model is under progress. Since the dataset is not completeley normalized, i might have trouble to get valuable output
 
 
-  3/ Get Edge and Midline characteristic:
+  4/ Get Edge and Midline characteristics:
       a/ Automatic detection of the edge and the midline
       
       ADVANCEMENT: For the moment, the detection will be performed manually
@@ -57,9 +58,9 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
       
       The code for this part is located in ./tools/Midline_Edge_Reformater.ipynb
       
-      ADVANCEMENT: Code is suppose to be over, but test need to be performed
+      ADVANCEMENT: Code is supposed to be finished, but tests need to be performed, especially with Macrostomum.
       
-  4/ Get 'Real' centriole characteristic
+  5/ Get 'Real' centriole characteristics
      -> centriole angle 
      -> relative lateral position (0 = midline, <0 : on the right side of the worm, >0 : on the left side of the worm)
      -> relative longitudinal position (0 = tail, 1 = head)
@@ -67,46 +68,48 @@ With ImageJ, open the 63/100x image and draw the midline with _segmented line_ t
      
      ADVANCEMENT: see note below.
      
-     NOTE: I need to think: how i will get the data from the CNN to know how i will inject them in thi script
+     NOTE: I need to think: how will I get the data from the CNN to know how I will inject them in thi script
      
-     So far, this is write in ./Centriole_Compensation.ipynb.
-     In this notebook, 
-     
+     So far, this is written in ./Centriole_Compensation.ipynb. 
      
      
-  5/ Summarized the data for a worm
- 
+     
+  6/ Summarize the worm's data: 
+  - CSV file as a list of lists, each containing data for individual reoriented centrioles (described in Main_v3, end of the script)
+  - 10 'GRAPH' plots (5x Mean angle, 5x CSTD) : worm is segmented into 5 anteroposterior segments. For each segment we segment the average angle (moving average) of the centrioles according to its location. The x axis shows its medio-lateral location (0 = midline) while the y axis represents the angle. Each point is a centriole. The dark area represents the circular standard deviation (CSTD).
 
-
-
-
+**Before running Main_v3.ipynb**
+- For manual midline and edge selection: After pasting the coordinates on the .xlsm file, go to the Graph sheet and ensure that the plotted worm looks normal. If not, redo the manual segmentation.
+- Ensure that you have placed your files to be analysed in the folder to_analyse/. In the abscence of this folder, simply create it and paste your files inside.
+- Ensure the that the weights of the neural network exist in: weights/VGG_schmidtea_weight_classification.pth. If not, you can find it on the Schmidtea drive.
+- If your image was acquired with 63x objective instead of 100x, resize it by a factor of 100/63 = 1.59 on ImageJ (scale function)
 
 # TO DO LIST:  
 
 
 -----------------------------------------------------------------
 
-## POUR LE CNN
-  
-### Preparation d'un DataBase Loader  
+## CNN
 
-Je peux peut-etre passser la function qui permet de récuperer les images depuis les json dans la class Dataset.
+- The angle predictions are good with Schmidtea, a worm that was used to train the model. However the predictions are completely off with _Macrostomum_. Perhaps the model needs to be trained with new manual _Macrostomum_ data. This task could be outsourced with Amazon Mechanical Turk. Potential challenge: contrary to _Schmidtea_, _Macrostomum_ has 'vertical' rootlets in addition to the horizontal ones. Will need to be very cautious to discard the former in the manual process. 
+- For weaker PCs, the code could be implemented on Google Colaboratory or Paperspace which offer free GPU. However the jupyter-colab migration is likely going to take a lot of time due to syntax differences between the 2 platforms. For one, _pylightxl_ isn't available in colab. An alternative like pandas could be implemented. Also, there may be storage issues with the drive.
 
-Je suis pas certain que ce soit opti.
+### DataBase Loader preparation 
+
+I could pass a function to get the images from json in the Dataset class.
+
+I am not certain it's optimal.
   
   
   
 ### Validation  
-
-Pas obligatoire de faire cette étape mais tester mon pipeline d'analyse entier
   
   
   
+--------------------------------------------------------------------
   
----------------------------------------------------------------------
   
-  
-# Pour l'isolation des centrioles  
+# Centriole isolation 
 
 
 ## How to detect centrioles in images
@@ -119,32 +122,32 @@ Sonka, 2007
 https://en.wikipedia.org/wiki/Difference_of_Gaussians
 https://en.wikipedia.org/wiki/Gaussian_blur
 
--> in ImageJ perform Gaussian blur (Process -> Filters -> Gaussian Blur) 
-# on the original image with a radius of 0.5 (sigma1)
-# on the original image with a radius of 5 (sigma2)
+-> In ImageJ perform Gaussian blur (Process -> Filters -> Gaussian Blur) 
+     - on the original image with a radius of 0.5 (sigma1)
+     - on the original image with a radius of 5 (sigma2)
 
-#Then subtract image created sigma1 with images created with sigma2 (Process -> Image Calculator...)
+-> Then subtract image created with sigma1 with image created with sigma2 (Process -> Image Calculator...)
 
 
 
 ## Step 2: Perform an adaptive thresholding approach
 
 Otsu, 1979
-Otsu_treshold -> implementé dans ImageJ: 
+Otsu_treshold -> implemented in ImageJ: 
 https://imagej.nih.gov/ij/plugins/otsu-thresholding.html
 download .JAR file and put it in the plugin folder of Fiji
 
 To apply it
 Plugins -> Filters -> Otsu Tresholding
 
-Then I should perform filters to remove too big and too small objects
+Then I should perform filters to remove objects that are too big and too small.
 
   
   
   
 ---------------------------------------------------------------------
   
-## Pour la rectification de l'angle des centrioles  
+## Centriole reorientation  
    
    
    
@@ -159,7 +162,7 @@ https://scipy-lectures.org/packages/scikit-image/index.html
 https://scikit-image.org/docs/0.13.x/api/skimage.morphology.html#skimage.morphology.remove_small_objects
    
    
-   
+
    
 https://www.earthdatascience.org/courses/intro-to-earth-data-science/open-reproducible-science/jupyter-python/jupyter-notebook-shortcuts/
 
